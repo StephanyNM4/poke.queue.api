@@ -1,0 +1,3 @@
+fastapi==
+uvicorn==8.2.1
+python-dotenv==1.1.1
