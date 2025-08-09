@@ -33,7 +33,6 @@ class AQueue:
             logger.info(f"Insertando mensaje en cola: {message}")
             message_bytes = message.encode('utf-8')
 
-            # ¡OJO! send_message() es SINCRÓNICO, no uses 'await' aquí
             self.queue_client.send_message(
                 self.queue_client.message_encode_policy.encode(message_bytes)
             )
