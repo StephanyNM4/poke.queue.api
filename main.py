@@ -30,7 +30,7 @@ async def home():
 
 @app.get("/api/version")
 async def root():
-    return {"version": "0.4.1"}
+    return {"version": "0.4.6"}
 
 @app.post("/api/request")
 async def create_request(pokemon_request: PokemonRequest):

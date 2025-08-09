@@ -83,12 +83,13 @@ async def delete_pokemon_request(report_id: int):
 
         result_dict = await select_pokemon_request(report_id)
 
-        if not result_dict:
+        if not result_dict or result_dict == "[]":
             raise HTTPException(status_code=404, detail="Report not found")
 
         try:
+            blob_name = f"poke_report_{report_id}.csv"
             blob = ABlob()
-            blob.delete_blob(report_id)
+            blob.container_client.delete_blob(blob_name)
             logger.info(f"Blob {report_id} deleted successfully")
         except Exception as blob_error:
             logger.error(f"Error deleting blob: {blob_error}")
