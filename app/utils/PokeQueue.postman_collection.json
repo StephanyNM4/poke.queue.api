@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "e70cd06f-dd5f-4022-8a0c-f7d078b69d0b",
+		"name": "PokeQueue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28261215"
+	},
+	"item": [
+		{
+			"name": "root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{poke_queue}}",
+					"host": [
+						"{{poke_queue}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{poke_queue_azure}}/api/version",
+					"host": [
+						"{{poke_queue_azure}}"
+					],
+					"path": [
+						"api",
+						"version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pokemon_type\": \"fire\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poke_queue}}/api/request",
+					"host": [
+						"{{poke_queue}}"
+					],
+					"path": [
+						"api",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pokemons",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poke_queue_azure}}/api/request",
+					"host": [
+						"{{poke_queue_azure}}"
+					],
+					"path": [
+						"api",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{poke_queue}}/api/request/32",
+					"host": [
+						"{{poke_queue}}"
+					],
+					"path": [
+						"api",
+						"request",
+						"32"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"58\",\r\n    \"status\": \"completed\",\r\n    \"url\": \"https://sapokequeuesdev.blob.core.windows.net/reportes/poke_report_58.csv\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poke_queue}}/api/request",
+					"host": [
+						"{{poke_queue}}"
+					],
+					"path": [
+						"api",
+						"request"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "poke_queue_azure",
+			"value": "api-pokequeues-dev.azurewebsites.net",
+			"type": "string"
+		},
+		{
+			"key": "poke_queue",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
